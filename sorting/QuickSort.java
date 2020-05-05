@@ -30,12 +30,12 @@ public class QuickSort {
         int pivot = list[start];
         int i = start+1;
         int j = end;
-        //bug pelo lado direito
+        
         while (i <= j ) {
-            while(i <=end && list[i] < pivot ) {
+            while(i <= end && list[i] < pivot ) {
                 i++;
             } 
-            while(j >=start && list[j]> pivot) {
+            while(j >= start && list[j]> pivot) {
                 j--;
             }
             if (i <= j) {
@@ -55,11 +55,11 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-   //     int[] list2 = {20,35,-15,7, 55,1,-22};
+        int[] list2 = {20,35,-15,7, 55,1,-22};
         int[] list = {1,10, -3, 0, 45, 13, 4};
-        QuickSort.quickSort(list);
+        QuickSort.quickSort(list2);
 
-        for (int i : list) {
+        for (int i : list2) {
             System.out.println(i);
         }
     }

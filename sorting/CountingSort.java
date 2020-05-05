@@ -19,9 +19,10 @@ public class CountingSort {
     // {1,4,9,12,5,3,1,8,10};
         int[] countArray = new int[(max-min)+1];
 
-        // place the count in the value relative position
+        // place the count in its relative position
         for(int i = 0; i < input.length; i++) {
-            countArray[input[i]-min] += 1;
+            int relativePosition = input[i]-min;
+            countArray[relativePosition] += 1;
         }
 
         int indexInput = 0;
@@ -47,10 +48,10 @@ public class CountingSort {
 
     }
     public static void main(String[] args) {
-        int[] list1 = {2,1,7,2,4,9,12,5,3,2,1,7,8,23,10};
-     //   int[] list2 = {10,13,11,18,19,12,11,20,18};
-        CountingSort.countingSortU(list1, 1,23);
-        for (int i : list1) {
+      //  int[] list1 = {2,1,7,2,4,9,12,5,3,2,1,7,8,23,10};
+        int[] list2 = {10,13,14,18,19,12,11,20,18};
+        CountingSort.countingSortU(list2, 10,20);
+        for (int i : list2) {
          System.out.println(i);
         }
     }

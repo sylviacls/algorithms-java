@@ -72,6 +72,40 @@ public class MergeSort {
         return merged;
     }
 
+      // { 20, 35, -15, 7, 55, 1, -22 }
+    /*  public static void mergeSort2(int[] input, int start, int end) {
+
+        if (end - start < 2) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        mergeSort2(input, start, mid);
+        mergeSort2(input, mid, end);
+        merge2(input, start, mid, end);
+    }
+    // { 20, 35, -15, 7, 55, 1, -22 }
+    public static void merge2(int[] input, int start, int mid, int end) {
+
+        if (input[mid - 1] <= input[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+        while (i < mid && j < end) {
+            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+        }
+
+        System.arraycopy(input, i, input, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0, input, start, tempIndex);
+
+
+    } */
+
     public static void main(String[] args) {
 
      //   int[] array = {2,6,9,1,0,8,5};

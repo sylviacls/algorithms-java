@@ -14,8 +14,7 @@ public class ShellSort {
 
     public static void shellSort(int[] list) {
 
-        for(int gap = list.length/2; gap > 0; gap = gap/2) {
-            
+        for(int gap = list.length/2; gap > 0; gap = gap/2) {          
             // i will be used to go right-hand the gap
             for (int i = gap; i < list.length; i++) {
                 int newElement = list[i];
