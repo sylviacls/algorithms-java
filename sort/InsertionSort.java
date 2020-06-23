@@ -1,14 +1,18 @@
-/*
-- Work left to right, examine each element and compare it to items on its left 
-- and INSERT it in correct position (swapping them)
-- Set a marker for the sortedPartition after the first element
-- Select the new unsorted element (sortedPartition + 1)
-- It works making "insertion" of the newElement in the sortedPartition (looping)
-- swapping the elements in the sortedPartition to the right until find the right position for the new Element
-- sortedPartitionIndex starts at 0 index, it grows left to right, 
-- O(n²)
-- If the list is nearly ordered O(n) cause only few shifting will be necessary
-*/
+import org.junit.*;
+
+/**
+ * It works left to right, examining each element and compare it to items on its left 
+ * and INSERT it in correct position (swapping them)
+ * We set a marker for the sortedPartition after the first element
+ * Select the new unsorted element (sortedPartition + 1)
+ * 
+ * It works making "insertion" of the newElement in the sortedPartition (looping)
+ * swapping the elements in the sortedPartition to the right until find the right position for the new Element
+ * sortedPartitionIndex starts at 0 index, it grows left to right, 
+ * 
+ * Time complexity: O(n²)
+ * If the list is nearly ordered it will be O(n) cause only few shifting would be necessary
+ */
 
 public class InsertionSort {
 
@@ -19,7 +23,6 @@ public class InsertionSort {
       * reach the beggining of sortedPartion or the correct position for new element
       */ 
       for(int i = 1; i < list.length; i++) {
-
         int newElement = list[i];
         int j = i;
         while(j > 0 && newElement < list[j-1]) {
@@ -27,7 +30,6 @@ public class InsertionSort {
           j--;
         }
         list[j] = newElement; // putting new element at its right position
-
       }
     }
 
@@ -37,7 +39,7 @@ public class InsertionSort {
       * go towards sortedPartion making space (to the right) through elements until
       * reach the beggining of sortedPartion or the correct position for new element
       */ 
-      if(n < 2 ) {
+      if(n <= 1 ) {
         return;
       }
 
@@ -50,23 +52,16 @@ public class InsertionSort {
         i--;
       }
       list[i] = newElement; //putting new element at its right place
-      System.out.println("");
-      System.out.println("Result when n is " + n);
-      for (int number : list) {
-        System.out.print(number +", ");
-      }
-      System.out.println("");
     }
     
-    public static void main(String[] args) {
-
-        int[] list = {20,35,-15,7, 55,1,-22};
-         insertionSortRecursive(list, list.length);
-     //   insertionSort(list);
-        for (int i : list) {
-          System.out.println(i);
-        }
-
+    @Test
+    public void validate() {
+        int[] list1 = {20,35,-15,7, 55,1,-22};
+        int[] list2 = {0,10,-15,4, 30, 1,-2};
+        insertionSort(list1);
+        insertionSortRecursive(list2, list2.length);
+        Assert.assertArrayEquals(new int[] {-22, -15, 1, 7, 20, 35, 55}, list1);
+        Assert.assertArrayEquals(new int[] {-15, -2, 0, 1, 4, 10, 30}, list2);
     }
 
 }

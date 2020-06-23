@@ -1,3 +1,6 @@
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
  * O(n logn) - average case (better than merge sort) - it depends on pivot selection
  * O(n²) - worst case
@@ -54,14 +57,15 @@ public class QuickSort {
         list[j] = temp;
     }
 
-    public static void main(String[] args) {
-        int[] list2 = {20,35,-15,7, 55,1,-22};
-        int[] list = {1,10, -3, 0, 45, 13, 4};
+    @Test
+    public void validate() {
+        int[] list = {20,35,-15,7, 55,1,-22};
+        int[] list2 = {1,10, -3, 0, 45, 13, 4};
+        QuickSort.quickSort(list);
         QuickSort.quickSort(list2);
 
-        for (int i : list2) {
-            System.out.println(i);
-        }
+        Assert.assertArrayEquals(new int[]{-22,-15,1,7,20,35,55}, list);
+        Assert.assertArrayEquals(new int[]{-3,0,1,4,10,13,45}, list2);
     }
 
 
