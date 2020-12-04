@@ -2,7 +2,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /***
- *The  whole array is setted as unsortedPartition (index = leght- 1) 
+ * Bubble sort is a simple algorithm that repeatedly steps through the list, compares adjacent elements 
+ * and swaps them if they are in the wrong order. The pass through the list is repeated until the list
+ * is sorted. 
+ * 
+ * The whole array is setted as unsortedPartition (index = leght- 1) 
  * Transverse left to right until the unsortedPartition
  * "Bubbles" the largest values to the top
  * Repeatedly steps through the list and compare adjacents elements and swap them if 
