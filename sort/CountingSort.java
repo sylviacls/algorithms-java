@@ -4,15 +4,19 @@ import org.junit.Test;
 /**
  *  !! See the implementation with liked list for the stable option !!
  * 
- * Makes assumptions about the data. It only works with non-negative discrete values.
- * Values must be within a specific range.
+ * Restricted inputs: Counting sort only works when the range of potential items in the input is 
+ *                    known ahead of time.
  * It doesn't use comparisons
  * It counts the number of occurrences of each value
  * Two phases:
  * 1 - Transverse the input array and fill the count array with the occurrences of each value
  * 2 - Transverse the count array and write the values back in the input array
  * Not in-place! we have to creat a count array
- * O(n) just because we're making assumptions about the input. The range of values should not be larges
+ * 
+ * Time Complexity: O(N) just because we're making assumptions about the input. 
+ *                  The range of values should not be large.
+ * Space Complexity: O(>N), extra space for the counting array. If the range of potential values is big, 
+ *                   then counting sort requires a lot of space (perhaps more than O(n)).
  */
 public class CountingSort {
    

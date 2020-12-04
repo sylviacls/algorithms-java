@@ -6,6 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
+ * In the Bucket Sorting technique, the data items are distributed in a set of buckets.
+ * Each bucket can hold a similar type of data. After distributing, each bucket is sorted using 
+ * another sorting algorithm. After that, all elements are gathered on the main list to get the 
+ * sorted form.
+ * 
  * It uses Hashing
  * It Makes assumptions about the data (length/digi), so it can perform O(n)
  * It performs best when there aren't many collistions
@@ -18,7 +23,13 @@ import org.junit.Test;
  *  Requeriment: Values in Bucket X -1 < Values in Bucket X  <Values in Bucket X + 1
  * The hash function must meet this requirement in order of mantening the soring
  * The stability depends on sort algorithm used (insertion sort is normally used)
- * O(n) only when the buckets have only one time
+ * 
+ * Time Complexity: O(N), average-case: it occurs when the elements are distributed randomly in the array
+ *                  O(N^2) worst-case: When there are elements of close range in the array, they are 
+ *                  likely to be placed in the same bucket. This may result in some buckets having more
+ *                  number of elements than others. It makes the complexity depend on the sorting algorithm used 
+ *                  to sort the elements of the bucket
+ * Space Complexity: O(N+K)
  */
 
 public class BucketSort {
@@ -31,7 +42,7 @@ public class BucketSort {
         for (int i = 0; i < buckets.length; i++) {
             buckets[i] = new ArrayList<Integer>();
         }
-        //Scattering phase:
+        //Scattering phase: 
         //Put the elements from the input into the buckets using the hash function
         for (int i = 0; i < input.length; i++) {
             int hashedValue = hash(input[i]);
@@ -41,8 +52,8 @@ public class BucketSort {
         //We can use comparator or Collection.sort
         Comparator<Integer> comparator = Comparator.naturalOrder();
         for (List<Integer> bucket : buckets) {
-         // Collections.sort(bucket);
-        bucket.sort(comparator);
+            // Collections.sort(bucket);
+            bucket.sort(comparator);
         }
         //Gathering phase
         int indexInput = 0;

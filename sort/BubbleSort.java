@@ -16,9 +16,11 @@ import org.junit.Test;
  * Only local variables are used and that doesn't depende on the size of number you're sorting 
  * We don't have to create another array.
  * 
- * O(n²) time-complexity
  * It's a stable algorith
  * We can make a pre-ordering (like shell sorting) and then performer the bubble sort
+ * 
+ * Time Complexity: O(N²) worst-case
+ * Space Complexity: O(1), no extra space 
  */
 
 public class BubbleSort {

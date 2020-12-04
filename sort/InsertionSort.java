@@ -1,6 +1,7 @@
 import org.junit.*;
 
 /**
+ *  
  * It works left to right, examining each element and compare it to items on its left 
  * and INSERT it in correct position (swapping them)
  * We set a marker for the sortedPartition after the first element
