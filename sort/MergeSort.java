@@ -15,6 +15,8 @@ import org.junit.*;
  *                  perform N operations.
  * Space complexity: O(n) - its proporcional to the number of the elements 
  * 
+ * Merge sort is more efficient and works faster than quick sort in case of larger array size or datasets.
+ * Quick sort is more efficient and works faster than merge sort in case of smaller array size or datasets.
  */
  
 public class MergeSort {

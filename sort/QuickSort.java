@@ -18,6 +18,9 @@ import org.junit.Test;
  *      and all the elements greater than the pivot after it. After this step, the pivot is in its final
  *      position. This is the important partition step.
  *   3) We apply the above steps recursively to both sub-lists on the left and right of the pivot.
+ * 
+ * Merge sort is more efficient and works faster than quick sort in case of larger array size or datasets.
+ * Quick sort is more efficient and works faster than merge sort in case of smaller array size or datasets.
  */
 public class QuickSort {
 
