@@ -1,20 +1,20 @@
 import org.junit.*;
 
 /**
- * Its a divide and conquer algorithm that uses recursion 
- * Not in-place: uses emporary array 
+ * The algorithm can be described as the following 2 step process: 
+ *    Divide: In this step, we divide the input array into 2 halves, the pivot being the midpoint
+ *        of the array. This step is carried out recursively for all the half arrays until there are no
+ *        more half arrays to divide.
+ *   Conquer: In this step, we sort and merge the divided arrays from bottom to top and get the sorted
+ *        array.
  * 
+ * Not in-place: uses emporary array 
  * Stable algorithm 
- * Time complexity: O(N logN) worst-case
+ * 
+ * Time complexity: O(N logN) worst-case, the recursion tree will have logN level, in each level we will
+ *                  perform N operations.
  * Space complexity: O(n) - its proporcional to the number of the elements 
  * 
- * Phases: splitting (logical, to faster sorting during merging) and merging
- * 
- * Spliting: slipt the array in 2 parts unsorted (left and right) keep splitting
- * until the arrays have one element each (they are sorted) 
- * 
- * Merging: merge every left/right pair of siblings arrays into a sorted array 
- * keep returning and merging all the arrays back until you have one sorted array
  */
  
 public class MergeSort {
@@ -26,6 +26,11 @@ public class MergeSort {
             return;
         }
 
+        // Spliting: slipt the array in 2 parts unsorted (left and right) keep splitting
+        // until the arrays have one element each (they are sorted) 
+        // O (log N) : whenever we divide a number into half in every step, it can be represented 
+        //using a logarithmic function, which is log n and the number of steps can be represented 
+        //by log n + 1(at most)
         int mid = length/2;
         int[] left = new int[mid];
         int[] right = new int[length-mid];
@@ -41,6 +46,10 @@ public class MergeSort {
         mergeSort(left);
         mergeSort(right);
 
+        // Merging: merge every left/right pair of siblings arrays into a sorted array 
+        // keep returning and merging all the arrays back until you have one sorted array
+        // O(N) to merge the subarrays, made by dividing the original array of n elements, 
+        //a running time of O(n) will be required.
         merge(array, left, right);
 
     }
@@ -60,11 +69,7 @@ public class MergeSort {
             }
             mergedIndex++;
         }
-        /*
-         while (i < arr1.length && j < arr2.length) {
-            merged[tempIndex++] = arr1[i] <= arr2[j] ? arr1[i++] : arr2[j++];
-        }
-        */     
+
         //Handling the left-overs
         while (i < left.length) {
             array[mergedIndex] = left[i];

@@ -2,15 +2,22 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * O(n logn) - average case (better than merge sort) - it depends on pivot selection
- * O(n²) - worst case
+ * The input list is divided into two sub-lists by an element called pivot; one sub-list with elements
+ * less than the pivot and another one with elements greater than the pivot. This process repeats for
+ * each sub-list.
+ * 
+ * Time Complexity: O(n logn) - average case (better than merge sort) - it depends on pivot selection
+ *                  O(n²) - worst case
  * In-place, unstable
- * Most libraries implement the quicksort for their Sortings methods
- * We choose the "pivot" and re-arrange the list (Logical Partition)
- *  logically partitions the array in two halves.
- *  elements lessers tha pivot to its left, and greater to its right
- * So, when the partition is finished, the pivot will be at its right position
- * And then the process is repetead for the left and right array
+ *  * Most libraries implement the quicksort for their Sortings methods
+ * 
+ *  Steps: 
+ *   1) We choose an element from the list, called the pivot. We'll use it to divide the list into
+ *      two sub-lists.
+ *   2) We reorder all the elements around the pivot – the ones with smaller value are placed before it,
+ *      and all the elements greater than the pivot after it. After this step, the pivot is in its final
+ *      position. This is the important partition step.
+ *   3) We apply the above steps recursively to both sub-lists on the left and right of the pivot.
  */
 public class QuickSort {
 
